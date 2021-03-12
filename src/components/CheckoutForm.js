@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/accessible-emoji */
 import React, { useState } from "react";
 
 const initialValue = {
@@ -14,6 +15,7 @@ const initialValue = {
 // and replace the necessary stateful logic from CheckoutForm with the hook
 
 const CheckoutForm = (props) => {
+
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [values, setValues] = useState(initialValue);
 
@@ -30,7 +32,7 @@ const CheckoutForm = (props) => {
     <>
       <form onSubmit={handleSubmit}>
         <h2>Checkout Form</h2>
-        <label>
+        <label htmlFor='firstName'>
           First Name:
           <input
             name="firstName"
@@ -38,7 +40,7 @@ const CheckoutForm = (props) => {
             onChange={handleChanges}
           />
         </label>
-        <label>
+        <label htmlFor='lastName'>
           Last Name:
           <input
             name="lastName"
@@ -46,7 +48,7 @@ const CheckoutForm = (props) => {
             onChange={handleChanges}
           />
         </label>
-        <label>
+        <label htmlFor='address'>
           Address:
           <input
             name="address"
@@ -66,7 +68,7 @@ const CheckoutForm = (props) => {
           Zip:
           <input name="zip" value={values.zip} onChange={handleChanges} />
         </label>
-        <button>Checkout</button>
+        <button name='submit' id='submit'>Checkout</button>
       </form>
 
       {showSuccessMessage && (
